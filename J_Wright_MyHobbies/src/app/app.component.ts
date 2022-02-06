@@ -44,7 +44,7 @@ export class AppComponent {
         title: 'Coding',
         description: 'Creating different things using code, such as my current discord bot written in python',
         creator: 'James Wright',
-        imgURL: '../assets/images/botCode.png',
+        imgURL: '../../assets/images/botCode.png',
         type: 'Technical',
         tags: ['learning', 'hobby']
       },
