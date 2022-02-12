@@ -26,9 +26,6 @@
 
     div.contain.no-type{
         color: orange;
-    }
-
-    div.contain.no-type{
         padding: 5px;
         background-color: rgba(1,1,1,.8);
         border: 3px solid orange;
@@ -49,6 +46,28 @@
         background-color: rgba(255, 0, 0, .5);
         border: 3px solid black;
         border-radius: 10px;
+    }
+
+    .false{
+        padding: 5px;
+        margin: 10px;
+        margin-top: 0;
+        border: 1px solid red;
+        border-radius: 10px;
+        width: 20%;
+        color: red;
+        text-align: center;
+    }
+
+    .true{
+        padding: 5px;
+        margin: 10px;
+        margin-top: 0;
+        border: 1px solid green;
+        border-radius: 10px;
+        width: 20%;
+        color: green;
+        text-align: center;
     }
 }
 

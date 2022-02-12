@@ -74,10 +74,13 @@ export class AppComponent {
     ]
   }
 
-  searched(cardTitle: string): string{
-    console.log(cardTitle);
-    cardTitle = "test";
-    return cardTitle;
+  searched(cardTitle: string, contentLst: Content[]): string{
+    for(let content of contentLst){
+      if(cardTitle == content.title){
+        return "There is a card with that title.";
+      }
+    }
+    return "There is no card with that title.";
   }
   
 }

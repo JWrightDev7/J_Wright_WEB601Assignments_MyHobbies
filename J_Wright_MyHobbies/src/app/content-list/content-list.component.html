@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="title"> <header> {{ contentItem ? contentItem.title : "" }} </header></div> 
+    <div #title class="title"> <header> {{ contentItem ? contentItem.title : "" }} </header></div> 
     <div class="desc">{{ contentItem ? contentItem.description : "" }} </div> 
     <div class="creator">Created By: {{ contentItem ? contentItem.creator : "" }}</div>
     <div *ngIf="contentItem ? contentItem.type : ''" class="type">Type: {{ contentItem ? contentItem.type : '' }}</div>

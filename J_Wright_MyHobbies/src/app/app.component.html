@@ -1,15 +1,7 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <div class="search">
-    <input #result>
-    <button (click)="searched(result.value)">Search</button>
-    <div></div>
+    <input type="text" #result>
+    <button (click)="result.value = searched(result.value, contentList)">Search</button>
+    <div [ngClass]="{'true': result.value == 'There is a card with that title.', 'false': result.value == 'There is no card with that title.'}" [innerHTML]="result.value"></div>
 </div>
 
 <div class="contain no-type">
