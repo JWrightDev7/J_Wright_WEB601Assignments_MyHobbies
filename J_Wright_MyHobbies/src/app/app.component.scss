@@ -1,3 +1,56 @@
 :host{
     display: flex;
+    flex-direction: column;
+
+    input{
+        width: 15%;
+        padding: 10px;
+        margin: 10px;
+    }
+
+    button{
+        font-weight: bold;
+        outline: none;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        background: rgba(0,255,0,.5);
+        padding: 10px;
+        margin: 10px 0;
+        cursor: pointer;
+    }
+
+    div.contain{
+        display: flex;
+        flex-direction: row;
+    }
+
+    div.contain.no-type{
+        color: orange;
+    }
+
+    div.contain.no-type{
+        padding: 5px;
+        background-color: rgba(1,1,1,.8);
+        border: 3px solid orange;
+        border-radius: 10px;
+    }
+
+    div.contain.outdoor{
+        margin: 5px 0;
+        padding: 5px;
+        background-color: rgba(60, 179, 113, .85);
+        border: 3px solid black;
+        border-radius: 10px;
+    }
+
+    div.contain.indoor{
+        margin: 5px 0;
+        padding: 5px;
+        background-color: rgba(255, 0, 0, .5);
+        border: 3px solid black;
+        border-radius: 10px;
+    }
 }
+
+
+

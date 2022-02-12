@@ -6,7 +6,23 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<app-content-list *ngFor="let item of contentList; index as i; first as isFirst" [contentItem]="item" [class.isFirst]="isFirst">
-</app-content-list>
+<div class="search">
+    <input #result>
+    <button (click)="searched(result.value)">Search</button>
+    <div></div>
+</div>
 
+<div class="contain no-type">
+    <app-content-list *ngFor="let item of (contentList | filterContent); index as i; first as isFirst;" [contentItem]="item" [class.isFirst]="isFirst">
+    </app-content-list>
+</div>
 
+<div class="contain outdoor">
+    <app-content-list *ngFor="let item of (contentList | filterContent: 'Outdoor'); index as i; first as isFirst;" [contentItem]="item" [class.isFirst]="isFirst">
+    </app-content-list>
+</div>
+
+<div class="contain indoor">
+    <app-content-list *ngFor="let item of (contentList | filterContent: 'Indoor'); index as i; first as isFirst;" [contentItem]="item" [class.isFirst]="isFirst">
+    </app-content-list>
+</div>

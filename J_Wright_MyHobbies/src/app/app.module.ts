@@ -3,11 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ContentListComponent } from './content-list/content-list.component';
+import { FilterContentPipe } from './filter-content.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContentListComponent
+    ContentListComponent,
+    FilterContentPipe
   ],
   imports: [
     BrowserModule
