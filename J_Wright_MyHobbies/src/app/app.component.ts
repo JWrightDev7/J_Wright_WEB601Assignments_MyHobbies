@@ -10,7 +10,7 @@ export class AppComponent {
   title = "James' Hobbies";
   contentList: Content[];
 
-  constructor(){
+  constructor() {
     this.contentList = [
       {
         id: 0,
@@ -35,7 +35,6 @@ export class AppComponent {
         title: "Gaming",
         description: "Escape From Tarkov is a first person shooter video game set in a post apocolyptic russia.",
         creator: "Battlestate Games",
-        imgURL: "https://upload.wikimedia.org/wikipedia/en/2/20/Escape_from_Tarkov.jpg",
         tags: ['past time', 'hobby']
       },
       {
@@ -74,13 +73,13 @@ export class AppComponent {
     ]
   }
 
-  searched(cardTitle: string, contentLst: Content[]): string{
-    for(let content of contentLst){
-      if(cardTitle == content.title){
+  searched(cardTitle: string, contentLst: Content[]): string {
+    for (let content of contentLst) {
+      if (cardTitle == content.title) {
         return "There is a card with that title.";
       }
     }
     return "There is no card with that title.";
   }
-  
+
 }
