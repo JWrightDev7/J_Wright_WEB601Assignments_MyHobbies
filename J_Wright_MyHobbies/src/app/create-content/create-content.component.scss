@@ -1,0 +1,54 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: left;
+
+    div{
+        width: 100%;
+        display: flex;
+        text-align: right;
+    }
+
+    div label{
+        display: block;
+        width: 20%;
+        margin: 5px;
+        padding: 5px;
+    }
+
+    div input{
+        width: 45%;
+        padding: 5px;
+        margin: 5px;
+        border: 1px solid black;
+        border-radius: 10px;
+        outline: none;
+    }
+
+    button{
+        width: 50%;
+        margin: 5px auto;
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+
+    button:hover{
+        background-color: rgba($color: #00ff156b, $alpha: .85);
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .requiredText{
+        width: 100%;
+        font-size: 12px;
+        text-align: center;
+    }
+
+    .requiredText p{
+        margin: 0 auto;
+    }
+}

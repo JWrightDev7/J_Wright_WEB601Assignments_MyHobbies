@@ -8,6 +8,7 @@ import { Content } from './helper-files/content-interface';
 })
 export class AppComponent {
   title = "James' Hobbies";
+  failureMsg = "";
   contentList: Content[];
 
   constructor() {
@@ -71,6 +72,7 @@ export class AppComponent {
         type: 'Outdoor'
       }
     ]
+
   }
 
   searched(cardTitle: string, contentLst: Content[]): string {
@@ -80,6 +82,45 @@ export class AppComponent {
       }
     }
     return "There is no card with that title.";
+  }
+
+  addHobbyToList(newHobbyFromChild: Content) {
+    console.log(this.failureMsg);
+    let promise = new Promise((success, fail) => {
+      if ((
+        newHobbyFromChild.id ||
+        newHobbyFromChild.title ||
+        newHobbyFromChild.description ||
+        newHobbyFromChild.creator != "")) {
+        this.failureMsg = "";
+        success(
+          `There was a new hobby added with the following attributes:
+              Title: ${newHobbyFromChild.title}, 
+              ID: ${newHobbyFromChild.id}, 
+              Description: ${newHobbyFromChild.description},
+              Creator: ${newHobbyFromChild.creator},
+              Image URL: ${newHobbyFromChild.imgURL},
+              Type: ${newHobbyFromChild.type},
+              Tags: ${newHobbyFromChild.tags}`);
+      } else {
+        fail("There was an error adding a new hobby, make sure all required fields are filled in.");
+        this.failureMsg = "There was an error adding a new hobby, make sure all required fields are filled in.";
+      }
+    });
+
+    promise
+      .then((successMessage) => console.log(successMessage))
+      .catch((errMessage) => this.failureMsg = errMessage);
+
+    if (this.failureMsg != "") {
+      return;
+    } else {
+      console.log('The old hobby list: ', this.contentList);
+      this.contentList.push(newHobbyFromChild);
+      this.contentList = [...this.contentList];
+      console.log("The hobby to be added: ", newHobbyFromChild);
+      console.log("The new hobby list: ", this.contentList);
+    }
   }
 
 }
