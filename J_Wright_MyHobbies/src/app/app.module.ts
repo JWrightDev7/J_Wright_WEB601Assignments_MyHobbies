@@ -2,16 +2,18 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ContentListComponent } from './content-list/content-list.component';
+import { HobbieListComponent } from './content-list/hobbie-list.component';
 import { FilterContentPipe } from './filter-content.pipe';
 import { HoverAffectDirective } from './hover-affect.directive';
+import { AppMessagesComponent } from './app-messages/app-messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContentListComponent,
+    HobbieListComponent,
     FilterContentPipe,
-    HoverAffectDirective
+    HoverAffectDirective,
+    AppMessagesComponent,
   ],
   imports: [
     BrowserModule

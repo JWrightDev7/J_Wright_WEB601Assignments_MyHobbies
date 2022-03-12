@@ -1,20 +1,20 @@
-import {Content} from "./content-interface";
+import {Hobbies} from "./Hobbies";
 
-export class ContentList{
+export class hobbiesList {
     static hobbyCount = 0;
-    private _items: Content[];
+    private _items: Hobbies[];
 
-    constructor(item: Content){
+    constructor(item: Hobbies){
         this._items = [];
-        this._items[ContentList.hobbyCount] = item;
+        this._items[hobbiesList.hobbyCount] = item;
         this.increaseCount();
     }
 
-    get items(): Content[]{
+    get items(): Hobbies[]{
         return this._items;
     }
 
-    addItems(item: Content){
+    addItems(item: Hobbies){
         this._items.push(item);
     }
 
@@ -23,7 +23,7 @@ export class ContentList{
     }
 
     increaseCount(){
-        return ++ContentList.hobbyCount;
+        return ++hobbiesList.hobbyCount;
     }
 
     getItemAt(itemIndex: number){
@@ -37,7 +37,7 @@ export class ContentList{
             let imgURL = item.imgURL;
             let type = item.type;
 
-            let returnString = 
+            let returnString =
                 `
                     <div> Title: ${title} </div>
                     <div> Description: ${description} </div>

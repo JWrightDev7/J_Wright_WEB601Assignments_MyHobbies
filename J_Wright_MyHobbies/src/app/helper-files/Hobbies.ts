@@ -1,4 +1,4 @@
-export interface Content {
+export interface Hobbies {
     id: number;
     title: string;
     description: string;
