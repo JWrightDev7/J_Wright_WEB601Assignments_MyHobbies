@@ -36,13 +36,13 @@ export class AppComponent implements OnInit {
 
   getAHobbie(id: string){
     let newId = parseInt(id);
-    console.log(newId);
     if(isNaN(newId)){
       return this.messageService.add(`You can't input a letter. You must enter a number between 0 - ${this.hobbiesList.length - 1}`);
     }
     if(newId < 0 || newId > this.hobbiesList.length - 1){
       return this.messageService.add(`You must enter a number between 0 - ${this.hobbiesList.length - 1}`);
     }else{
+      this.messageService.clear();
       this.messageService.add(`Content Item at id: ${id} has been loaded.`);
       return this.hobbiesService.getSingleHobbie(newId).subscribe(singleHobbie => this.filteredHobbie = singleHobbie);
     }
