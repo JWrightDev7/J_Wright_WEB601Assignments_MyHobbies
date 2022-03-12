@@ -20,6 +20,7 @@ export class HobbiesService {
 
   getSingleHobbie(id: number):Observable<Hobbies[]>{
     let hobbie = HOBBIESLIST.filter(hobbie => hobbie.id == id);
+    this.messageService.add(`Content Item at id: ${id} has been loaded.`);
     return of(hobbie);
   }
 }

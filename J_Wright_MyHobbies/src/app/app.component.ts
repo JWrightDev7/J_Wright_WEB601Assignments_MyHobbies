@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.hobbiesService.getHobbiesObs().subscribe(hobbieArray => this.hobbiesList = hobbieArray);
-    this.getAHobbie("3");
+    this.hobbiesService.getSingleHobbie(3).subscribe(singleHobbie => this.filteredHobbie = singleHobbie);
   }
 
   searched(cardTitle: string, contentLst: Hobbies[]): string {
@@ -43,7 +43,6 @@ export class AppComponent implements OnInit {
       return this.messageService.add(`You must enter a number between 0 - ${this.hobbiesList.length - 1}`);
     }else{
       this.messageService.clear();
-      this.messageService.add(`Content Item at id: ${id} has been loaded.`);
       return this.hobbiesService.getSingleHobbie(newId).subscribe(singleHobbie => this.filteredHobbie = singleHobbie);
     }
 
