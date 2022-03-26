@@ -1,25 +1,24 @@
-<div class="container">
+<div class="container hobby-{{hobbyItem?.id}}">
     <div #title class="title">
-        <header> {{ hobbieItem ? hobbieItem.title : "" }} </header>
+        <header> {{ hobbyItem ? hobbyItem.title : "" }} </header>
     </div>
-    <div class="desc">{{ hobbieItem ? hobbieItem.description : "" }} </div>
-    <div class="creator">Created By: {{ hobbieItem ? hobbieItem.creator : "" }}</div>
+    <div class="desc">{{ hobbyItem ? hobbyItem.description : "" }} </div>
+    <div class="creator">Created By: {{ hobbyItem ? hobbyItem.creator : "" }}</div>
 
-    <div appHoverAffect styleType="underline" *ngIf="hobbieItem ? hobbieItem.type : ''" class="type">
-        Type: {{ hobbieItem ? hobbieItem.type : '' }}
+    <div appHoverAffect styleType="underline" *ngIf="hobbyItem ? hobbyItem.type : ''" class="type">
+        Type: {{ hobbyItem ? hobbyItem.type : '' }}
     </div>
 
-    <div *ngIf="hobbieItem?.tags" class="tags">
+    <div *ngIf="hobbyItem?.tags" class="tags">
         <ul>
-            <span *ngFor="let tag of hobbieItem?.tags">
+            <span *ngFor="let tag of hobbyItem?.tags">
                 <li appHoverAffect styleType="bold">#{{ tag }}</li>
             </span>
         </ul>
     </div>
 
-
-    <div *ngIf="hobbieItem" class="imgURL">
-        <img [src]="hobbieItem.imgURL != null ? hobbieItem.imgURL : 'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aG9iYnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'"
+    <div *ngIf="hobbyItem" class="imgURL">
+        <img [src]="hobbyItem.imgURL != null ? hobbyItem.imgURL : 'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aG9iYnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'"
             (click)="clicked()">
     </div>
 </div>

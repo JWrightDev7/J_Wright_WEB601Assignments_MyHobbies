@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Hobbies } from './helper-files/Hobbies';
+import { Hobby } from '../helper-files/Hobby';
 
 @Pipe({
   name: 'filterContent'
 })
 export class FilterContentPipe implements PipeTransform {
 
-  transform(hobbieItem: Hobbies[], htype?: string): Hobbies[] {
+  transform(hobbieItem: Hobby[], htype?: string): Hobby[] {
     let filtered;
     if(!htype){
       filtered = hobbieItem.filter(item => item.type == "" || item.type == null);

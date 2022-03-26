@@ -1,9 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Hobbies } from './helper-files/Hobbies';
-import { HobbiesService } from './hobbies-service.service';
-import {MessageService} from "./message.service";
-import {hobbiesList} from "./helper-files/hobbies-list";
-
+import { Hobby } from '../helper-files/Hobby';
+import { HobbiesService } from './services/hobbies-service.service';
+import { MessageService } from "./services/message.service";
 
 @Component({
   selector: 'app-root',
@@ -11,21 +9,38 @@ import {hobbiesList} from "./helper-files/hobbies-list";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = "James' Hobbies";
-  hobbiesList: Hobbies[];
-  filteredHobbie: Hobbies[];
+  title = "James' Hobby";
+  hobbiesList: Hobby[] = [];
+  filteredHobby: Hobby[] = [];
 
-  constructor(private hobbiesService: HobbiesService, public messageService: MessageService) {
-    this.hobbiesList = [];
-    this.filteredHobbie = [];
-  }
+  constructor(private hobbiesService: HobbiesService, public messageService: MessageService) {}
 
   ngOnInit(): void {
-    this.hobbiesService.getHobbiesObs().subscribe(hobbieArray => this.hobbiesList = hobbieArray);
-    this.hobbiesService.getSingleHobbie(3).subscribe(singleHobbie => this.filteredHobbie = singleHobbie);
+    this.getHobbies();
   }
 
-  searched(cardTitle: string, contentLst: Hobbies[]): string {
+  getHobbies(): void{
+    this.hobbiesService.getHobbies().subscribe(hobbiesArray => this.hobbiesList = hobbiesArray);
+    this.hobbiesService.getSingleHobby(3).subscribe(singleHobby => this.filteredHobby = singleHobby);
+  }
+
+  addNewHobby(newHobbyFromChild: Hobby): void{
+    this.hobbiesService.addHobby(newHobbyFromChild).subscribe(newHobbyFromServer => {
+      console.log('New Hobby from the server', newHobbyFromServer);
+      this.hobbiesList.push(newHobbyFromServer);
+      this.hobbiesList = [...this.hobbiesList];
+    });
+  }
+
+  updateHobby(contentItem: Hobby): void{
+    this.hobbiesService.updateHobby(contentItem).subscribe(() => {
+      console.log("Content has been updated");
+      this.getHobbies();
+    });
+  }
+
+
+  searched(cardTitle: string, contentLst: Hobby[]): string {
     for (let content of contentLst) {
       if (cardTitle == content.title) {
         return "There is a card with that title.";
@@ -43,10 +58,8 @@ export class AppComponent implements OnInit {
       return this.messageService.add(`You must enter a number between 0 - ${this.hobbiesList.length - 1}`);
     }else{
       this.messageService.clear();
-      return this.hobbiesService.getSingleHobbie(newId).subscribe(singleHobbie => this.filteredHobbie = singleHobbie);
+     return this.hobbiesService.getSingleHobby(newId).subscribe(singleHobby => this.filteredHobby = singleHobby);
     }
-
-
   }
 
 }

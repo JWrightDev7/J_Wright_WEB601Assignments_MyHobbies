@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Hobbies } from '../helper-files/Hobbies';
+import { Hobby } from '../../helper-files/Hobby';
 
 @Component({
   selector: 'app-content-list',
@@ -7,9 +7,9 @@ import { Hobbies } from '../helper-files/Hobbies';
   styleUrls: ['./hobbie-list.component.scss']
 })
 export class HobbieListComponent implements OnInit {
-  @Input() hobbieItem: Hobbies;
+  @Input() hobbyItem: Hobby;
   constructor() {
-    this.hobbieItem = {
+    this.hobbyItem = {
       id: 0,
       title: "",
       description: "",
@@ -24,8 +24,8 @@ export class HobbieListComponent implements OnInit {
   }
 
   clicked(){
-    if(this.hobbieItem != null){
-      console.log(`Title: '${this.hobbieItem.title}' \nId: '${this.hobbieItem.id}'`);
+    if(this.hobbyItem != null){
+      console.log(`Title: '${this.hobbyItem.title}' \nId: '${this.hobbyItem.id}'`);
     }
   }
 }
