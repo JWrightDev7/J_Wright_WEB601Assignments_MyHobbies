@@ -1,24 +1,20 @@
-<div class="container hobby-{{hobbyItem?.id}}">
-    <div #title class="title">
-        <header> {{ hobbyItem ? hobbyItem.title : "" }} </header>
-    </div>
-    <div class="desc">{{ hobbyItem ? hobbyItem.description : "" }} </div>
-    <div class="creator">Created By: {{ hobbyItem ? hobbyItem.creator : "" }}</div>
+<mat-card class="container hobby-{{hobbyItem?.id}}">
+    <mat-card-header>
+        <mat-card-title>{{ hobbyItem ? hobbyItem.title : "" }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="desc">{{ hobbyItem ? hobbyItem.description : "" }} </div>
+        <div class="creator">Created By: {{ hobbyItem ? hobbyItem.creator : "" }}</div>
 
-    <div appHoverAffect styleType="underline" *ngIf="hobbyItem ? hobbyItem.type : ''" class="type">
-        Type: {{ hobbyItem ? hobbyItem.type : '' }}
-    </div>
+        <div appHoverAffect styleType="underline" *ngIf="hobbyItem ? hobbyItem.type : ''" class="type">
+            Type: {{ hobbyItem ? hobbyItem.type : '' }}
+        </div>
 
-    <div *ngIf="hobbyItem?.tags" class="tags">
-        <ul>
-            <span *ngFor="let tag of hobbyItem?.tags">
-                <li appHoverAffect styleType="bold">#{{ tag }}</li>
-            </span>
-        </ul>
-    </div>
-
-    <div *ngIf="hobbyItem" class="imgURL">
-        <img [src]="hobbyItem.imgURL != null ? hobbyItem.imgURL : 'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aG9iYnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'"
-            (click)="clicked()">
-    </div>
-</div>
+        <div *ngIf="hobbyItem?.tags" class="tags">
+            <mat-chip-list aria-label="hobby tags" *ngFor="let tag of hobbyItem?.tags">
+                <mat-chip>#{{tag}}</mat-chip>
+            </mat-chip-list>
+        </div>
+    </mat-card-content>
+    <img mat-card-image [src]="hobbyItem.imgURL != null ? hobbyItem.imgURL : 'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aG9iYnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'" (click)="clicked()">
+</mat-card>

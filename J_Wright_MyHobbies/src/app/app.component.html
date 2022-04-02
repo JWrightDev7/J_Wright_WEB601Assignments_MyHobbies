@@ -1,45 +1,61 @@
-<div class="search">
-  <form>
-    <input type="text" #result placeholder="Enter a Title">
-    <button (click)="result.value = searched(result.value, hobbiesList)" type="reset">Search</button>
-  </form>
+<h1>Welcome to my Hobbies</h1>
 
-    <div [ngClass]="{'true': result.value == 'There is a card with that title.', 'false': result.value == 'There is no card with that title.'}" [innerHTML]="result.value"></div>
-</div>
-<div class="filteredID">
-  <input type="number" #num placeholder="Enter a Hobbie ID" required min="0" [max]="hobbiesList.length - 1">
-  <button (click)="getAHobbie(num.value)">Filter</button>
-</div>
+<div class="forms">
+  <div class="find">
+    <div class="search">
+      <form>
+        <mat-form-field>
+          <mat-label>Title</mat-label>
+          <input matInput #result>
+        </mat-form-field>
+        <button (click)="result.value = searched(result.value, hobbiesList)" type="reset" mat-raised-button color="primary">Search</button>
+      </form>
 
-<div class="messages">
-  <app-messages>
-  </app-messages>
-</div>
+      <div [ngClass]="{'true': result.value == 'There is a card with that title.', 'false': result.value == 'There is no card with that title.'}" [innerHTML]="result.value"></div>
+    </div>
+    <div class="filteredID">
+      <mat-form-field>
+        <mat-label>Hobby ID</mat-label>
+        <input type="number" #num placeholder="Enter a Hobbie ID" required min="0" [max]="hobbiesList.length - 1" matInput>
+      </mat-form-field>
+      <button (click)="getAHobbie(num.value)" mat-raised-button color="primary">Filter</button>
+    </div>
 
-<div class="modify">
-  <app-modify-content (newHobbyEvent)="addNewHobby($event)" (updateHobbyEvent)="updateHobby($event)">
-  </app-modify-content>
-</div>
-
-<div class="hobbieID" *ngIf="filteredHobby.length > 0">
-  <app-content-list *ngFor="let item of (filteredHobby); index as i; first as isLone;" [class.isLone]="isLone" [hobbyItem]="item">
-  </app-content-list>
-</div>
-
-<div class="contain no-type" *ngIf="hobbiesList.length > 0">
-    <app-content-list *ngFor="let item of (hobbiesList | filterContent); index as i; first as isFirst;"
-                      [hobbyItem]="item" [class.isFirst]="isFirst">
+    <div class="modify">
+      <app-modify-content (newHobbyEvent)="addNewHobby($event)" (updateHobbyEvent)="updateHobby($event)">
+      </app-modify-content>
+    </div>
+  </div>
+  <div class="hobbieID" *ngIf="filteredHobby.length > 0">
+    <app-content-list *ngFor="let item of (filteredHobby); index as i; first as isLone;" [class.isLone]="isLone" [hobbyItem]="item">
     </app-content-list>
+  </div>
+  <div class="messages">
+    <app-messages>
+    </app-messages>
+  </div>
+
 </div>
 
-<div class="contain outdoor" *ngIf="hobbiesList.length > 0">
-    <app-content-list *ngFor="let item of (hobbiesList | filterContent: 'Outdoor'); index as i; first as isFirst;"
-                      [hobbyItem]="item" [class.isFirst]="isFirst">
-    </app-content-list>
-</div>
+<mat-tab-group>
+  <mat-tab label="No Types">
+    <div class="contain no-type" *ngIf="hobbiesList.length > 0">
+      <app-content-list *ngFor="let item of (hobbiesList | filterContent); index as i; first as isFirst;" [hobbyItem]="item" [class.isFirst]="isFirst">
+      </app-content-list>
+    </div>
+  </mat-tab>
 
-<div class="contain indoor" *ngIf="hobbiesList.length > 0">
-    <app-content-list *ngFor="let item of (hobbiesList | filterContent: 'Indoor'); index as i; first as isFirst;"
-                      [hobbyItem]="item" [class.isFirst]="isFirst">
-    </app-content-list>
-</div>
+  <mat-tab label="Outdoor">
+    <div class="contain outdoor" *ngIf="hobbiesList.length > 0">
+      <app-content-list *ngFor="let item of (hobbiesList | filterContent: 'Outdoor'); index as i; first as isFirst;" [hobbyItem]="item" [class.isFirst]="isFirst">
+      </app-content-list>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Indoor">
+    <div class="contain indoor" *ngIf="hobbiesList.length > 0">
+      <app-content-list *ngFor="let item of (hobbiesList | filterContent: 'Indoor'); index as i; first as isFirst;" [hobbyItem]="item" [class.isFirst]="isFirst">
+      </app-content-list>
+    </div>
+  </mat-tab>
+</mat-tab-group>

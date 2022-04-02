@@ -1,38 +1,28 @@
-:host{
+:host {
     display: flex;
     flex-direction: column;
+    padding: 1em;
+    height: 100%;
 
-    input{
-        width: 15%;
-        padding: 10px;
-        margin: 10px;
+    h1 {
+        text-align: center;
+        font-size: 3em;
     }
 
-    button{
-        font-weight: bold;
-        outline: none;
-        border: 1px solid transparent;
-        border-radius: 5px;
-        background: rgba(0,255,0,.5);
-        padding: 10px;
-        margin: 10px 0;
-        cursor: pointer;
-    }
-
-    div.contain{
+    div.contain {
         display: flex;
         flex-direction: row;
     }
 
-    div.contain.no-type{
+    div.contain.no-type {
         color: orange;
         padding: 5px;
-        background-color: rgba(1,1,1,.8);
+        background-color: rgba(1, 1, 1, .8);
         border: 3px solid orange;
         border-radius: 10px;
     }
 
-    div.contain.outdoor{
+    div.contain.outdoor {
         margin: 5px 0;
         padding: 5px;
         background-color: rgba(60, 179, 113, .85);
@@ -40,7 +30,7 @@
         border-radius: 10px;
     }
 
-    div.contain.indoor{
+    div.contain.indoor {
         margin: 5px 0;
         padding: 5px;
         background-color: rgba(255, 0, 0, .5);
@@ -48,7 +38,17 @@
         border-radius: 10px;
     }
 
-    .false{
+    .forms {
+        display: flex;
+    }
+
+    .find {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+
+    .false {
         padding: 5px;
         margin: 10px;
         margin-top: 0;
@@ -59,7 +59,7 @@
         text-align: center;
     }
 
-    .true{
+    .true {
         padding: 5px;
         margin: 10px;
         margin-top: 0;
@@ -69,7 +69,22 @@
         color: green;
         text-align: center;
     }
+
+    .search,
+    .filteredID {
+        margin: .25em 1em;
+    }
+
+    .modify {
+        width: 50%
+    }
+
+    button {
+        margin-left: 1em;
+    }
+
+    .messages {
+        width: 50%;
+    }
+
 }
-
-
-

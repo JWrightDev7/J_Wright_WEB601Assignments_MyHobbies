@@ -13,18 +13,19 @@ export class AppComponent implements OnInit {
   hobbiesList: Hobby[] = [];
   filteredHobby: Hobby[] = [];
 
-  constructor(private hobbiesService: HobbiesService, public messageService: MessageService) {}
+  constructor(private hobbiesService: HobbiesService, public messageService: MessageService) { }
 
   ngOnInit(): void {
     this.getHobbies();
   }
 
-  getHobbies(): void{
+  getHobbies(): void {
     this.hobbiesService.getHobbies().subscribe(hobbiesArray => this.hobbiesList = hobbiesArray);
     this.hobbiesService.getSingleHobby(3).subscribe(singleHobby => this.filteredHobby = singleHobby);
   }
 
-  addNewHobby(newHobbyFromChild: Hobby): void{
+  addNewHobby(newHobbyFromChild: Hobby): void {
+    console.log("event triggered");
     this.hobbiesService.addHobby(newHobbyFromChild).subscribe(newHobbyFromServer => {
       console.log('New Hobby from the server', newHobbyFromServer);
       this.hobbiesList.push(newHobbyFromServer);
@@ -32,13 +33,12 @@ export class AppComponent implements OnInit {
     });
   }
 
-  updateHobby(contentItem: Hobby): void{
+  updateHobby(contentItem: Hobby): void {
     this.hobbiesService.updateHobby(contentItem).subscribe(() => {
       console.log("Content has been updated");
       this.getHobbies();
     });
   }
-
 
   searched(cardTitle: string, contentLst: Hobby[]): string {
     for (let content of contentLst) {
@@ -49,17 +49,16 @@ export class AppComponent implements OnInit {
     return "There is no card with that title.";
   }
 
-  getAHobbie(id: string){
+  getAHobbie(id: string) {
     let newId = parseInt(id);
-    if(isNaN(newId)){
+    if (isNaN(newId)) {
       return this.messageService.add(`You can't input a letter. You must enter a number between 0 - ${this.hobbiesList.length - 1}`);
     }
-    if(newId < 0 || newId > this.hobbiesList.length - 1){
+    if (newId < 0 || newId > this.hobbiesList.length - 1) {
       return this.messageService.add(`You must enter a number between 0 - ${this.hobbiesList.length - 1}`);
-    }else{
+    } else {
       this.messageService.clear();
-     return this.hobbiesService.getSingleHobby(newId).subscribe(singleHobby => this.filteredHobby = singleHobby);
+      return this.hobbiesService.getSingleHobby(newId).subscribe(singleHobby => this.filteredHobby = singleHobby);
     }
   }
-
 }
