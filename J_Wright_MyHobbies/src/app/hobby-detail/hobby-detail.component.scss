@@ -1,0 +1,58 @@
+:host {
+    div {
+        background-color: #424242;
+        margin: .2rem auto;
+        padding: 1rem;
+        border: 1px solid transparent;
+        border-radius: 1rem;
+        width: 50%;
+    }
+
+    .container {
+        background-color: #303030;
+        margin: 0 auto;
+        width: 50%;
+    }
+
+    h4 {
+        text-align: center;
+        font-size: 2rem;
+        margin: 1rem 0;
+    }
+
+    .tags {
+        display: flex;
+        flex-direction: row;
+    }
+
+    mat-chip-list {
+        margin: 0 .2rem;
+    }
+
+    img {
+        width: 100%;
+        margin: 1rem auto;
+        text-align: center;
+        border: 1px solid transparent;
+        border-radius: 1rem;
+    }
+
+    img:hover {
+        cursor: pointer;
+    }
+
+    .button {
+        text-align: center;
+        background-color: transparent;
+    }
+
+    button {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    button a {
+        color: white;
+        text-decoration: none;
+    }
+}

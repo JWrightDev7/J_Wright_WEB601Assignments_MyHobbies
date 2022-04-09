@@ -1,0 +1,89 @@
+:host {
+    button {
+        margin: 1rem;
+    }
+
+    button a {
+        color: white;
+        text-decoration: none;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 3em;
+    }
+
+    div.contain {
+        display: flex;
+        flex-direction: row;
+    }
+
+    div.contain.no-type {
+        color: orange;
+        padding: 5px;
+        background-color: rgba(1, 1, 1, .8);
+        border: 3px solid orange;
+        border-radius: 10px;
+    }
+
+    div.contain.outdoor {
+        margin: 5px 0;
+        padding: 5px;
+        background-color: rgba(60, 179, 113, .85);
+        border: 3px solid black;
+        border-radius: 10px;
+    }
+
+    div.contain.indoor {
+        margin: 5px 0;
+        padding: 5px;
+        background-color: rgba(255, 0, 0, .5);
+        border: 3px solid black;
+        border-radius: 10px;
+    }
+
+    .forms {
+        display: flex;
+    }
+
+    .find {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+
+    .false {
+        padding: 5px;
+        margin: 10px;
+        margin-top: 0;
+        border: 1px solid red;
+        border-radius: 10px;
+        width: 20%;
+        color: red;
+        text-align: center;
+    }
+
+    .true {
+        padding: 5px;
+        margin: 10px;
+        margin-top: 0;
+        border: 1px solid green;
+        border-radius: 10px;
+        width: 20%;
+        color: green;
+        text-align: center;
+    }
+
+    .search,
+    .filteredID {
+        margin: .25em 1em;
+    }
+
+    .modify {
+        width: 50%
+    }
+
+    button {
+        margin-left: 1em;
+    }
+}

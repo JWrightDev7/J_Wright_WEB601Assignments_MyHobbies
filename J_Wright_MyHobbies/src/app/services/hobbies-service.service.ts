@@ -12,29 +12,33 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class HobbiesService {
 
   private httpOptions = {
-    headers: new HttpHeaders({'Content-type': 'application/json' })
+    headers: new HttpHeaders({ 'Content-type': 'application/json' })
   };
 
 
-  constructor(private http: HttpClient, private messageService: MessageService) {}
-  getHobbies(): Observable<Hobby[]>{
+  constructor(private http: HttpClient, private messageService: MessageService) { }
+  getHobbies(): Observable<Hobby[]> {
     console.log('Loading Content...');
     return this.http.get<Hobby[]>("api/hobbyList");
   }
 
-  addHobby(newContentItem: Hobby): Observable<Hobby>{
+  addHobby(newContentItem: Hobby): Observable<Hobby> {
     console.log("Adding new Content...");
     this.messageService.add(`A new Hobby has been added.`);
     return this.http.post<Hobby>("api/hobbyList", newContentItem, this.httpOptions);
   }
 
-  updateHobby(contentItem: Hobby): Observable<any>{
+  updateHobby(contentItem: Hobby): Observable<any> {
     return this.http.put("api/hobbyList", contentItem, this.httpOptions);
   }
 
-  getSingleHobby(id: number):Observable<Hobby[]>{
+  getSingleHobby(id: number): Observable<Hobby[]> {
     let hobby = HOBBIESLIST.filter(hobby => hobby.id == id);
     this.messageService.add(`Content Item at id: ${id} has been loaded.`);
     return of(hobby);
+  }
+
+  getHobby(id: number): Observable<Hobby> {
+    return this.http.get<Hobby>("api/hobbyList/" + id);
   }
 }

@@ -1,0 +1,19 @@
+<h4>{{ hobby ? hobby.title : "" }}</h4>
+<div class="container">
+    <div class="desc">{{ hobby ? hobby.description : "" }} </div>
+    <div class="creator">Created By: {{ hobby ? hobby.creator : "" }}</div>
+
+    <div appHoverAffect styleType="underline" *ngIf="hobby ? hobby.type : ''" class="type">
+        Type: {{ hobby ? hobby.type : '' }}
+    </div>
+
+    <div *ngIf="hobby?.tags" class="tags">
+        <mat-chip-list aria-label="hobby tags" *ngFor="let tag of hobby?.tags">
+            <mat-chip>#{{tag}}</mat-chip>
+        </mat-chip-list>
+    </div>
+    <div class="button">
+        <button mat-raised-button color="primary"><a routerLink="/list" routerLinkActive="active">Back to List</a></button>
+    </div>
+    <img mat-card-image [src]="hobby?.imgURL != null ? hobby?.imgURL : 'https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aG9iYnl8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60'" (click)="clicked()">
+</div>

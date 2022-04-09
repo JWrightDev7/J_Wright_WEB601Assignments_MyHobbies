@@ -20,6 +20,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatChipsModule } from '@angular/material/chips';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { HobbyDetailComponent } from './hobby-detail/hobby-detail.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { ListComponent } from './list/list.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -30,7 +39,11 @@ import { MatChipsModule } from '@angular/material/chips';
     HoverAffectDirective,
     AppMessagesComponent,
     ModifyContentComponent,
-    ModifyContent
+    ModifyContent,
+    HomeComponent,
+    HobbyDetailComponent,
+    ListComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +60,12 @@ import { MatChipsModule } from '@angular/material/chips';
     MatFormFieldModule,
     MatCardModule,
     MatTabsModule,
-    MatChipsModule
+    MatChipsModule,
+    AppRoutingModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
