@@ -28,7 +28,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { ListComponent } from './list/list.component';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { LogUpdateService } from './services/log-update.service';
 
 
 @NgModule({
@@ -43,7 +47,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HomeComponent,
     HobbyDetailComponent,
     ListComponent,
-    NotFoundComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -66,8 +70,15 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatToolbarModule,
     MatIconModule,
     MatGridListModule,
+    MatSnackBarModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
-  providers: [],
+  providers: [LogUpdateService],
   bootstrap: [AppComponent],
   entryComponents: [
 
